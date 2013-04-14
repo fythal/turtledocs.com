@@ -1,0 +1,79 @@
+<!-- <div class="center hero-unit">
+  <h1>Welcome to the Sample App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %> -->
+
+<div id="home_content" class="shadow">
+	<div id="home_inner">
+		<div id="slideshow">
+			<div class="slide active">
+				<div class="left_side">
+					<%= image_tag("iphone.jpg", :size => "162x311", :title => "techlockbox on iphones") %>
+				</div>
+				<div class="right_side">
+					<h2>TechLockBox at the job</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque erat nibh, rhoncus vitae auctor nec, vestibulum sit amet nisi. Sed nec tellus erat. Nulla non justo nunc. Ut et libero at tellus pharetra sagittis. Aliquam in ornare nulla. Nunc dolor tellus, sagittis sit amet elementum sit amet, iaculis non eros.</p>
+					<ul>
+						<li>Duis cursus neque a enim elementum ultrices.</li>
+						<li>Integer ut eros eget libero consequat condimentum.</li>
+						<li>Sed in lectus nisl, vel dapibus metus.</li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="slide">
+				<div class="left_side">
+					<%= image_tag("monitor.jpg", :size => "240x210", :title => "techlockbox on decktop") %>
+				</div>
+				<div class="right_side">
+					<h2>TechLockBox in the office</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque erat nibh, rhoncus vitae auctor nec, vestibulum sit amet nisi. Sed nec tellus erat. Nulla non justo nunc. Ut et libero at tellus pharetra sagittis. Aliquam in ornare nulla. Nunc dolor tellus, sagittis sit amet elementum sit amet, iaculis non eros.</p>
+					<ul>
+						<li>Duis cursus neque a enim elementum ultrices.</li>
+						<li>Integer ut eros eget libero consequat condimentum.</li>
+						<li>Sed in lectus nisl, vel dapibus metus.</li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="slide">
+				<div id="image_left"><%= image_tag("iphone.jpg", :size => "120x233", :title => "techlockbox on iphones") %></div>
+				<div id="text_middle">
+					<h4>At the office or on the job have access to thousands of documents store on the cloud.</h4>
+				</div>
+				<div id="image_right">
+					<%= image_tag("monitor.jpg", :size => "180x157", :title => "techlockbox on desktops") %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="lower_container">
+	<div id="lower_inner" class="shadow">
+		<div class="free_trial_button"><%= link_to "Free Sign up!", new_user_registration_path, class: "btn btn-large btn-primary" %></div>
+		<div id=lower_image_1>
+			<%= image_tag("schematic.jpg", :size => "150x232", :title => "hvac schematic") %>
+		</div>
+		<div id="lower_text_1">
+			<p>Sign up now with TechLockBox and gain access to thousands of HVAC documents from the cloud.</p>
+			<div>Here are some of the major manufacterers:</div>
+			<ul>
+				<li>Amana</li>
+				<li>American Standard</li>
+				<li>Bryant</li>
+				<li>Trane</li>
+				<li><a href="/makes/list">View all</a></li>
+			</ul>
+
+		</div>
+	</div>
+</div>

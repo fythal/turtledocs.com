@@ -1,0 +1,77 @@
+// Place all the styles related to the equipment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Standard Colors */
+$grayMediumLight: #eaeaea;
+$offWhiteLittle: #FEFEFE;
+$darkBlue: #3399FF;
+$border1color: #000000;
+$border2color: #eaeaea;
+$text1color: #AF9F99;
+$selectedBackground: #F0F0F4;
+
+.big_box{
+  overflow: auto;
+}
+
+.big_box .inside_container_left{
+  border-right: 1px solid $darkBlue;
+}
+
+.box_container{
+  width: 200px;
+  padding: 5px;
+}
+
+.box_label{
+  text-align: center;
+  color: #000000;
+  font-size: 1.4em;
+  padding: 20px 0 10px 0;
+}
+
+.box{
+  border: 1px solid $darkBlue;
+  
+}
+
+.box div{
+  margin: 2px 0;
+  padding: 0 5px;
+
+}
+
+.box .box_tag:hover{
+  cursor: pointer;
+  color: $darkBlue;
+}
+
+.box_selected{
+  background-color: $selectedBackground;
+  color: $darkBlue;
+}
+
+.box .box_header{
+  border-bottom:1px solid $border2color;
+  text-align: center;
+  margin:0 2px 8px 2px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: $darkBlue;
+
+}
+
+.box .inner_box{
+  overflow-y: auto;
+  max-height: 250px;
+  white-space: nowrap;
+  color: $text1color;
+  
+}
+
+#docs_container{
+  float: left;
+  padding: 20px;
+}
