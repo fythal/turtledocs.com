@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(:version => 20130414033423) do
     t.datetime "updated_at",                       :null => false
   end
 
+  create_table "models", :force => true do |t|
+    t.integer  "equipment_id"
+    t.string   "name"
+    t.text     "notes"
+    t.string   "status",       :default => "active"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
