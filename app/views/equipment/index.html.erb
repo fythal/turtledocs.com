@@ -1,0 +1,67 @@
+
+<div class="inside_container">
+	<h2>Equipment Documents</h2>
+	<div class="big_box">
+		<div class="inside_container_left">
+			<div class="box_container">
+				<div class="box_label">Equipment Make</div>
+				<div class="box">
+					<div id="eq-box_header" class="box_header"><%= @equipment[0].name %></div>
+					<div class="inner_box">
+						<% i = 0 %>
+						<% @equipment.each do |e| 
+							if i == 0
+								id = 'eq_box_selected'
+								cls = 'box_selected'
+								onclick = ''
+							else
+								id = 'eq-' + e.id.to_s
+								cls = 'box_tag'
+								onclick = "onclick=box_select('" + id + "')"
+								onclick.gsub("'", '"')
+							end %>
+							<div id="<%= id %>" class="<%= cls %>" value="<%= e.id %>" <%= onclick %>><%= e.name  %></div>
+							<% i += 1 
+						end %>
+						<% if can? :create,Equipment %> 
+							<div class='box_footer'>
+								<div class="clickable_div" onclick="create_equipment_make()">Add</div>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<div class="box_container">
+				<div class="box_label">Model No.</div>
+				<div class="box">
+					<div id="mdl-box_header" class="box_header"><%= @equipment[0].name %></div>
+					<div id ="mdl-inner_box" class="inner_box">
+						<% i = 0 %>
+						<% @model.each do |m| 
+							if i == 0
+								id = 'mdl_box_selected'
+								cls = 'box_selected'
+								onclick = ''
+							else
+								id = 'mdl-' + m.id.to_s
+								cls = 'box_tag'
+								onclick = "onclick=box_select('" + id + "')"
+								onclick.gsub("'", '"')
+							end %>
+							<div id="<%= id %>" class="<%= cls %>" value="<%= m.id %>" <%= onclick %>><%= m.name  %></div>
+							<% i += 1 
+						end %>
+					</div>
+					<% if can? :create,Equipment %> 
+						<div class='box_footer'>something</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div id="docs_container">
+			<div id="docs_list">
+				<p>There are no document for this model.</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,4 +1,4 @@
-// Place all the styles related to the equipment controller here.
+/// Place all the styles related to the equipment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -69,6 +69,26 @@ $selectedBackground: #F0F0F4;
   white-space: nowrap;
   color: $text1color;
   
+}
+
+.box .box_footer{
+  border-top:1px solid $border2color;
+  text-align: center;
+  margin: 8px 2px 0px 2px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: $darkBlue;
+
+}
+
+.box .box_footer div{
+  margin: 0 auto;
+  width: 100px;
+}
+
+.clickable_div:hover{
+  cursor: pointer;
+  color: $text1color;
 }
 
 #docs_container{
