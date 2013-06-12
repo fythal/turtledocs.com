@@ -1,0 +1,35 @@
+<div class="box_header">
+	<div id="eq-box_header" class="box_header_name"><%= @select_equipment.name %></div>
+	<% if can? :create,Equipment %>
+	<div class="update_container"> 
+		<%= link_to image_tag("edit.png", :size => "16x16", :alt => "Edit Equipment"), "#", :onclick => "update_equipment(#{@select_id})", :id => "eqp-edit" %>
+		<%= link_to image_tag("deletered.png", :size => "16x16", :alt => "Delete Equipment"), "#", :onclick => "delete_equipment(#{@select_id})", :id => "eqp-delete"  %>
+	</div>
+	<% end %>
+	<div class="clear"></div>
+</div>
+<div class="inner_box">
+<% i = 0 %>
+<% @equipment.each do |e|
+	if e.id === @select_id.to_i
+		id = 'eq_box_selected'
+		cls = 'box_selected'
+		onclick = ''
+	else
+		id = 'eq-' + e.id.to_s
+		cls = 'box_tag'
+		onclick = "onclick=box_select('" + id + "')"
+		onclick.gsub("'", '"')
+	end %>
+		<div id="<%= id %>" class="<%= cls %>" value="<%= e.id %>" <%= onclick %>><%= e.name  %></div>
+		<% i += 1 
+end %>
+</div>
+<% if can? :create,Equipment %> 
+<div class='box_footer'>
+	<div onclick="equipment_make_form()" class="box_tag">
+		Add
+	</div>
+</div>
+<% end %>
+	

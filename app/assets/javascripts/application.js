@@ -39,7 +39,7 @@ function slideSwitch() {
 		$active.removeClass('active last-active');
 	});
 	var index = $next.index('.slide');
-	console.log('remove check from ' + previous_index);
+	//console.log('remove check from ' + previous_index);
 	$('#' + previous_index).attr('checked', false);
 	$('#' + index).attr('checked', true);
 }
@@ -49,3 +49,16 @@ $(function() {
 	intervalId = setInterval( "slideSwitch()", 5000 );
 	
 });
+
+function isJson(value) {
+    try {
+        alert(JSON.stringify(value));
+        return true;
+    } catch (ex) {
+        return false;
+    }
+}
+
+function tester(){
+	alert("this is a test")
+}

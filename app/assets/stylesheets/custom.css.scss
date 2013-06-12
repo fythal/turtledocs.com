@@ -27,7 +27,7 @@ $selectedBackground: #F0F0F4;
   @include box_sizing;
 }
 
-.sign_in_up_container{
+.form_container{
 	width: 500px;
 	margin: 0 auto;
 	background-color: $offWhiteLittle;
@@ -402,6 +402,12 @@ input {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+#warning{
+	color: #ff0000;
+	float: right;
+	display: none;
 }
 
 .clear{
