@@ -5,7 +5,8 @@
 /* Standard Colors */
 $grayMediumLight: #eaeaea;
 $offWhiteLittle: #FEFEFE;
-$darkBlue: #3399FF;
+$darkBlue: #16396E;
+$lighterBlue: #3399FF;
 $border1color: #000000;
 $border2color: #eaeaea;
 $text1color: #AF9F99;
@@ -13,10 +14,32 @@ $selectedBackground: #F0F0F4;
 
 /* miscellaneous */
 
+.container_close{
+	float: right;
+}
+
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+}
+.messaging{
+	float: left;
+	background-color: #B5CB5B;
+	filter:alpha(opacity=40); /* IE */
+    -moz-opacity:0.4; /* Mozilla */
+    opacity: 0.4; /* CSS3 */
+    height: 45px;
+    margin: 5px 0 0 0;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+    display: none;
 }
 
 .debug_dump {
@@ -30,8 +53,7 @@ $selectedBackground: #F0F0F4;
 .form_container{
 	width: 500px;
 	margin: 0 auto;
-	background-color: $offWhiteLittle;
-	padding: 50px;
+	padding: 10px;
 }
 
 /* universal */
@@ -408,6 +430,20 @@ input {
 	color: #ff0000;
 	float: right;
 	display: none;
+}
+
+.crumbs_container{
+	color: #16396E;
+}
+
+.crumbs_splitter{
+	padding: 0 0 5px 0;
+	display: inline;
+}
+
+.crumbs{
+	font-size: 1.6em;
+	color: #16396E;
 }
 
 .clear{

@@ -1,0 +1,34 @@
+<div id="searchBoxOne">
+  <form action="?" method="get">
+    <input id="search_box" type="text" placeholder="search" />
+    <%= link_to image_tag("search-icon.png", :border => 0), {:action => 'get_search_select', :controller => 'equipment'}, {:class => 'dock-item'} %>
+  </form>
+</div>
+<div class="clear"></div>
+<div id="search_container">Search results</div>
+<div id="doc_crumbs" class="crumbs_container">
+	<span id="docs_equipment" class="crumbs"><%= @select_equipment_name %></span>
+	<% if @select_model %>
+		<span class="crumbs_splitter">>></span>
+		<span id="docs_model" class="crumbs"><%= @select_model.name %></span>
+		<% if can? :create,Document %>
+		<div id="upload_docs_container">
+			<p>Upload Docs</p>
+			<%= render :partial => "/documents/form_upload", :locals => {:model_id => @select_model.id} %>
+		</div>
+		<%= link_to 'Upload Document', 'javascript:upload_toggle()', :id => "file_upload_toggle" %>
+		<% end %>
+	<% else %>
+		<p>There are no models for this equipment.</p>
+	<% end %>
+	
+</div>
+<div id="forms_container">
+	<div id="inner_forms_container"></div>
+	<%= link_to "close", "javascript:close_forms_container()" %>
+</div>
+<% if @select_model %>
+<div id="docs_list">
+	<%= render :partial => "/documents/view_documents" %>
+</div>
+<% end %>

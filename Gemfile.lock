@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/rails/prototype_legacy_helper.git
+  revision: a2cd95c3e3c1a4f7a9566efdab5ce59c886cb05f
+  specs:
+    prototype_legacy_helper (0.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,6 +52,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -107,6 +117,12 @@ GEM
     mysql2 (0.3.11)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
+    paperclip (3.4.2)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     polyglot (0.3.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -192,10 +208,12 @@ DEPENDENCIES
   factory_girl_rails (>= 4.2.0)
   faker (= 1.0.1)
   figaro (>= 0.5.3)
-  jquery-rails
+  jquery-rails (~> 2.1)
   launchy (>= 2.2.0)
   multi_json (= 1.7.4)
   mysql2
+  paperclip
+  prototype_legacy_helper (= 0.0.0)!
   quiet_assets (>= 1.0.1)
   rails (= 3.2.13.rc1)
   rolify (>= 3.2.0)

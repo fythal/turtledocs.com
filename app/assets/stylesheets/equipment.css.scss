@@ -12,6 +12,39 @@ $border2color: #eaeaea;
 $text1color: #AF9F99;
 $selectedBackground: #F0F0F4;
 
+#searchBoxOne{
+    float:right;
+}
+#search_box{
+    font-size: 12px;
+    color: $text1color;
+    width: 150px;
+    padding: 2px;
+    border: 1px solid $text1color;
+}
+
+#search_container{
+  display: none;
+  overflow: auto;
+  background-color: $grayMediumLight;
+  padding: 5px;
+  max-height: 300px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+#search_container p{
+  border-bottom: 1px solid $darkBlue;
+  font-size: 14px;
+}
+
+#search_container h5{
+  float: left;
+  font-size: 14px;
+}
+
 .big_box{
   overflow: auto;
 }
@@ -46,6 +79,10 @@ $selectedBackground: #F0F0F4;
 .box .box_tag:hover{
   cursor: pointer;
   color: $darkBlue;
+}
+
+.box a{
+  text-decoration: none;
 }
 
 .box_selected{
@@ -84,6 +121,7 @@ $selectedBackground: #F0F0F4;
 .box .box_footer div{
   margin: 0 auto;
   width: 100px;
+  padding: 0 0 2px 0;
 }
 
 .box .box_header_name{
@@ -105,4 +143,21 @@ $selectedBackground: #F0F0F4;
 #docs_container{
   float: left;
   padding: 20px;
+  width: 650px;
+}
+
+#upload_docs_container{
+  background-color: $grayMediumLight;
+  display: none;
+  padding: 5px;
+}
+
+#file_upload_toggle{
+  display: block;
+}
+
+#forms_container{
+  background-color: $grayMediumLight;
+  display: none;
+  border-radius: 5px;
 }

@@ -1,0 +1,7 @@
+<%= form_tag({:controller => :documents, :action => :upload}, :multipart => true, :class => 'form-vertical', :remote=>true, :'data-update-target' => 'update-container' ) do  %>
+<%= file_field 'upload', 'document' %>
+<%= label_tag(:document_name, "Name:") %>
+<%= hidden_field_tag(:model_id, value = model_id) %>
+<%= text_field_tag(:document_name) %>
+<%= submit_tag "Save", :disable_with => 'Please wait...', :class => 'submit' %>
+<% end %>

@@ -1,0 +1,35 @@
+<h5>Search Results</h5>
+<div class="container_close">
+	<%= link_to "close", "javascript:close_search_container()" %>
+</div>
+<div class="clear"></div>
+<% if @equipment.length > 0 %>
+	<p>Equipment</p>
+	<div class="clear"></div>
+	<% @equipment.each do |e| %>
+	<div class="docs_list">
+		<%= link_to "#{e.name}", { :controller=>"equipment", :action=>"index", :equipment_id => e.id }, :target => "_blank" %><br>
+	</div>
+	<% end %>
+	<div class="clear"></div>
+<% end %>
+<% if @model.length > 0 %>
+	<p>Models</p>
+	<div class="clear"></div>
+	<% @model.each do |m| %>
+	<div class="docs_list">
+		<%= link_to "#{m.name}", { :controller=>"equipment", :action=>"index", :model_id => m.id }, :target => "_blank" %><br><br>
+	</div>
+	<% end %>
+	<div class="clear"></div>
+<% end %>
+<% if @docs.length > 0 %>
+	<p>Documents</p>
+	<div class="clear"></div>
+	<% @docs.each do |d| 
+		ext =  d.content_type.split('/')[1]%>
+	<div class="docs_list">
+		<%= link_to "#{d.name}.#{ext}", { :controller=>"documents", :action=>"get_file", :id => d.id }, :target => "_blank" %><br><br>
+	</div>
+	<% end %>
+<% end %>

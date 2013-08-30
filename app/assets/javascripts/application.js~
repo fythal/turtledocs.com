@@ -41,6 +41,22 @@ function slideSwitch() {
 	$('#' + index).attr('checked', true);
 }
 
+$(function() {
+	$('#slideshow div.active').show();
+	intervalId = setInterval( "slideSwitch()", 5000 );
+	margin_left = setInterval( "animateLogo()", 100 );
+});
+
+function animateLogo(){
+	console.log("marginleft is " + margin_left)
+	$('#logo').css({margin-left: margin_left});
+	if (margin_left > 200){
+		margin_left = 0;	
+	}else{
+		margin_left += 1;
+	}
+}
+
 function isJson(value) {
     try {
         alert(JSON.stringify(value));

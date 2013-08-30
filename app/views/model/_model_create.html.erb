@@ -1,0 +1,7 @@
+<div class="form_container">
+	<h3>Add New model</h3>
+		<%= label_tag(:model_name, "Model no.:") %>
+	  	<%= text_field_tag(:model_name) %>
+	  	<%= submit_tag("Add", onclick:"model_create(#{@equipment_id})", :class => 'btn-primary') %>
+	  	<div id="warning"></div>
+</div>

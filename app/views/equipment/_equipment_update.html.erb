@@ -1,0 +1,7 @@
+<div class="form_container">
+	<h3>Edit Equipment</h3>
+	<%= label_tag(:equipment_name, "Equipment Make:") %>
+  	<%= text_field_tag(:equipment_name, @equipment.name) %>
+  	<%= submit_tag("Edit", onclick:"equipment_update(#{@equipment.id})", :class => 'btn-primary') %>
+  	<div id="warning"></div>
+</div>

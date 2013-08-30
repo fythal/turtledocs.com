@@ -1,0 +1,7 @@
+<div class="form_container">
+	<h3>Edit Document</h3>
+	<%= label_tag(:document_name, "Document Name:") %>
+  	<%= text_field_tag(:doc_name, @doc.name) %>
+  	<%= submit_tag("Edit", onclick:"document_update(#{@doc.id})", :class => 'btn-primary') %>
+  	<div id="warning"></div>
+</div>

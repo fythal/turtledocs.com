@@ -2,9 +2,8 @@
   <div class="navbar-inner">
     <div class="container">
       <div id="logo_container">
-        <%= image_tag("fastturtle.png", :size => "50x50", :alt => "Edit Equipment", :id => "logo") %>
+      	<%= image_tag("fastturtle.png", :size => "50x50", :alt => "Edit Equipment") %>
       </div>
-      <div id="messaging" class="messaging">this is where the message will go.</div> 
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>

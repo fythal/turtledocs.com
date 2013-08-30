@@ -2,33 +2,32 @@
 	<div id="eq-box_header" class="box_header_name"><%= @select_equipment.name %></div>
 	<% if can? :create,Equipment %>
 	<div class="update_container"> 
-		<%= link_to image_tag("edit.png", :size => "16x16", :alt => "Edit Equipment"), "#", :onclick => "update_equipment(#{@select_id})", :id => "eqp-edit" %>
-		<%= link_to image_tag("deletered.png", :size => "16x16", :alt => "Delete Equipment"), "#", :onclick => "delete_equipment(#{@select_id})", :id => "eqp-delete"  %>
+		<%= link_to image_tag("edit.png", :size => "16x16", :alt => "Edit Equipment"), "javascript:edit_equipment(#{@eqp_select_id})", :id => "eqp-edit" %>
+		<%= link_to image_tag("deletered.png", :size => "16x16", :alt => "Delete Equipment"), "javascript:remove_equipment(#{@eqp_select_id})", :id => "eqp-delete"  %>
 	</div>
 	<% end %>
 	<div class="clear"></div>
 </div>
 <div class="inner_box">
-<% i = 0 %>
 <% @equipment.each do |e|
-	if e.id === @select_id.to_i
-		id = 'eq_box_selected'
-		cls = 'box_selected'
-		onclick = ''
-	else
-		id = 'eq-' + e.id.to_s
-		cls = 'box_tag'
-		onclick = "onclick=box_select('" + id + "')"
-		onclick.gsub("'", '"')
-	end %>
-		<div id="<%= id %>" class="<%= cls %>" value="<%= e.id %>" <%= onclick %>><%= e.name  %></div>
-		<% i += 1 
-end %>
+	if e.id === @eqp_select_id.to_i
+		div_id = 'eq_box_selected'
+		cls = 'box_selected' %>
+		<div id="<%= div_id %>" class="<%= cls %>" value="<%= e.id %>">
+		<%= e.name %> 
+	<% else
+		div_id = 'eq-' + e.id.to_s
+		cls = 'box_tag' %>
+		<div id="<%= div_id %>" class="<%= cls %>" value="<%= e.id %>"> 
+			<%= link_to  e.name, "javascript:box_select('eq-#{e.id}')" %>
+	<% end %>
+	</div>
+<% end %>
 </div>
 <% if can? :create,Equipment %> 
 <div class='box_footer'>
-	<div onclick="equipment_make_form()" class="box_tag">
-		Add
+	<div class="box_tag">
+		<%= link_to image_tag("add.png", :size => "16x16", :alt => "Edit Equipment"), "javascript:equipment_make_form()" %>
 	</div>
 </div>
 <% end %>

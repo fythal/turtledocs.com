@@ -1,0 +1,7 @@
+<div class="form_container">
+	<h3>Edit Model</h3>
+	<%= label_tag(:model_name, "Model:") %>
+  	<%= text_field_tag(:model_name, @model.name) %>
+  	<%= submit_tag("Edit", onclick:"model_update(#{@model.id})", :class => 'btn-primary') %>
+  	<div id="warning"></div>
+</div>

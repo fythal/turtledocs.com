@@ -1,0 +1,39 @@
+
+<% if !@model.blank? %>
+	<div class="box_header">
+		<div id="md-box_header" class="box_header_name"><%= @model_select.name %></div>
+		<% if can? :update,Model %>
+		<div class="update_container"> 
+			<%= link_to image_tag("edit.png", :size => "16x16", :alt => "Edit Model"), "javascript:edit_model(#{@model_select.id})", :id => "mdl-edit" %>
+			<%= link_to image_tag("deletered.png", :size => "16x16", :alt => "Delete Model"), "javascript:remove_model(#{@model_select.id})", :id => "mdl-delete"  %>
+		</div>
+		<% end %>
+		<div class="clear"></div>
+	</div>
+	<div class="inner_box">
+	<% @model.each do |m|
+		if m.id === @model_select.id
+			id = 'md_box_selected'
+			cls = 'box_selected' %>
+			<div id="<%= id %>" class="<%= cls %>" value="<%= m.id %>">
+				<%= m.name  %>
+		<% else
+			id = 'md-' + m.id.to_s
+			cls = 'box_tag' %>
+			<div id="<%= id %>" class="<%= cls %>" value="<%= m.id %>">
+				<%= link_to  m.name, "javascript:box_select('md-#{m.id}')" %>
+		<% end %>
+		</div>
+	<% end %>
+	</div>
+<% else %>
+<div>No Models for this equipment make.</div>
+<% end %>
+<% if can? :create,Model %> 
+<div class='box_footer'>
+	<div id="mdl-make_form" class="box_tag">
+		<%= link_to image_tag("add.png", :size => "16x16", :alt => "Add Model"), "javascript:model_make_form(#{@eqp_select_id})" %>
+	</div>
+</div>
+<% end %>
+
