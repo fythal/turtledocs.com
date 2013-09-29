@@ -7,7 +7,7 @@ class CustomLogger < Logger
   	
  	# logfile = File.open(Rails.root + '/log/useful.log', 'a')  #create log file
 	
- 	logfile = File.open('/var/www/ruby/turtledocs.com/log/useful.log', 'a')
+ 	logfile = File.open(Rails.root + '/log/useful.log', 'a')
 	logfile.sync  = true  #automatically flushes data to file
 	CUSTOM_LOGGER = CustomLogger.new(logfile)  #constant accessible anywhere
 
