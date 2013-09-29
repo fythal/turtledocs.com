@@ -8,7 +8,7 @@
 	<% end %>
 	<div class="clear"></div>
 </div>
-<div class="inner_box">
+<div id="equipment_box" class="inner_box">
 <% @equipment.each do |e|
 	if e.id === @eqp_select_id.to_i
 		div_id = 'eq_box_selected'

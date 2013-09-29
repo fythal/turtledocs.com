@@ -60,6 +60,7 @@ a{
 
 html {
 	overflow-y: scroll;
+	font-family: "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 body {
@@ -138,6 +139,40 @@ p {
 
 
 /* header */
+
+.header{
+	background: rgb(243, 243, 243); 
+    background: rgba(243, 243, 243, .9);
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px solid #DFE2E1;
+    height: 50px;
+}
+
+.header_container{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.nav{
+	float: right;
+	font-size: 1.5em;
+	margin: 30px 20px 0 0; 
+	color: #000000;
+}
+
+.nav li{
+	display: inline;
+	padding: 0 5px 0 5px;
+}
+
+.nav a{
+	text-decoration: none;
+	color: #000000;
+}
 
 #logo {
 	float: left;
@@ -241,15 +276,47 @@ footer ul li {
 	text-align: center;
 }
 
-#home_content{
-	background-image: image-url('home_background.jpg');
-	background-size:cover;
-	-webkit-background-origin:border;
-	height: 300px;
-	padding: 50px;
-	margin: 20px 0 0 0;
+.main{
+	width: 1000px;
+	margin: 0 auto;
 	
 }
+
+.main h1{
+	color: #333333;
+    font-family: "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+    margin-bottom: 14px;
+    font-size: 46px;
+    letter-spacing: -0.03em;
+    word-spacing: -0.04em;
+}
+
+.main p{
+	font-size: 1.38462em;
+	word-spacing: -0.06em;
+	font-size: 1.38462em;
+	width: 600px;
+	margin: 0 auto;
+}
+
+.main_mid{
+	margin: 0 auto;
+	width: 1000px;
+	position: relative;
+}
+
+.main_mid .inner_mid{
+	margin: 20px 0 0 0;
+}
+
+.main .nav_mid{
+	position: absolute; 
+	top: 10px; 
+	left: 150px; 
+	width: 150px; 
+}
+
 
 .shadow {
 	-moz-box-shadow:    3px 3px 5px 6px #555;
@@ -382,6 +449,26 @@ aside {
   }
 }
 
+.sign_up{
+	font-size: 1.4em;
+	text-align: left;
+	letter-spacing: -1px;
+	margin-bottom: 3px;
+	margin-top: 0px;
+	text-align: center;
+}
+.sign_up a{
+	text-decoration: none;
+}
+
+.sign_up hr{
+	display: block; 
+	height: 1px;
+    border: 0; 
+    border-top: 1px solid #DFE2E1;
+    margin: 1em 0; 
+    padding: 0;
+}
 /* forms */
 
 input, textarea, select, .uneditable-input {

@@ -3,22 +3,24 @@ require 'json'
 
 class EquipmentController < ApplicationController
 	def index
-		# if params[:model_id]
-		# 	@model_select = Model.find_by_id(params[:model_id]).fifst
-		# 	@select_equipment = Equipment.find_by_id(@select_model.equipment_id)
-		# elsif params[:equipment_id]
-		# 	@select_equipment = Equipment.find_by_id(params[:equipment_id])
-		# else
-		# 	@select_equipment = Equipment.first
-		# end
+		if params[:model_id]
+			@select_model = Model.find_by_id(params[:model_id])
+			puts "++++ #{@select_model.inspect}"
+			@select_equipment = Equipment.find_by_id(@select_model.equipment_id)
+		elsif params[:equipment_id]
+			@select_equipment = Equipment.find_by_id(params[:equipment_id])
+		end
+		puts "++++ select modet one is #{@select_model.inspect}"
 		@equipment = Equipment.all
-		@select_equipment = @equipment.first
+		@select_equipment = @equipment.first if @select_equipment.blank?
+		puts "select_equipment is #{@select_equipment.inspect}"
 		@eqp_select_id = @select_equipment.id
 		@model = Model.where(:equipment_id => @eqp_select_id)
-		if @model
-			@model_select = @model.first
-			@docs = Document.where(:model_id => @model_select.id)
+		if !@model.blank? and @select_model.blank?
+			@select_model = @model.first if $select_model.blank?
 		end
+		puts "++++ select modet is #{@select_model.inspect}"
+		@docs = Document.where(:model_id => @select_model.id)
 		# @model = Model.where('equipment_id' => @select_equipment.id)
 		
 		# if !@model_select and !@model.blank?
@@ -84,10 +86,23 @@ class EquipmentController < ApplicationController
 	end
 
 	def docs_container
-		@select_model = Model.find_by_id(params[:model_id])
-		@select_equipment_name = params[:equipment_name]
-		@docs = Document.where("model_id" => params[:model_id])
-		puts "docs are #{@docs.inspect}"
+		if params[:equipment_id] != 'NULL' and params[:model_id] == 'NULL'
+			@select_equipment = Equipment.find_by_id(params[:equipment_id])
+			@select_model = Model.where('equipment_id' => @select_equipment.id).first
+			@docs = Document.where("model_id" => @select_model.id) unless @select_model.blank?
+		elsif params[:model] == 'NULL'
+			@select_equipment = Equipment.first
+			@select_model = Model.find_by_id('equipment_id' => @select_equipment.model_id).first
+			@docs = Document.where("model_id" => @select_model.id) unless @select_model.blank?
+		end
+
+		unless params[:model_id] == 'NULL'
+			@select_model = Model.find_by_id(params[:model_id])
+			@select_equipment = Equipment.find_by_id(@select_model.equipment_id)
+			@docs = Document.where("model_id" => params[:model_id]) unless @select_model.blank?
+		end
+
+
 		render :partial => 'docs_container'
 	end
 

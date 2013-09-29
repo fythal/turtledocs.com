@@ -5,13 +5,14 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   get "equipment/index"
   # get "equipment/new"
   #get "contact/index"
-  root :to => "static_pages#home"
+  root :to => "static_pages#main"
   devise_for :users
   resources :users
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'contact#index'
   match '/equipment', to: 'equipment#index'
+  match '/more', to: 'more#index'
   #match '/equipment', to: 'equipment#/new'
   match 'equipment/add' => 'equipment#add', :as => :equipment_add
   match '/equipment/update' => 'equipment#update'
@@ -20,10 +21,10 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   match '/getequipmentlist/:id', to: 'equipment#get_equipment_list'
   match '/equipment/edit/:id', to: 'equipment#edit'
   match '/equipment/remove', to: 'equipment#remove'
-  match '/equipment/docs_container/:model_id/:equipment_name' => 'equipment#docs_container'
+  match '/equipment/docs_container/:equipment_id/:model_id' => 'equipment#docs_container'
   match '/equipment/search_documents' => 'equipment#search_documents'
   match '/equipment/get_search_select/' => 'equipment#get_search_select'
-  match '/model/view/:equipment_select_id/:model_select_id', to: 'model#view'
+  match '/model/view/:equipment_select_id/:select_model_id', to: 'model#view'
   match '/model/edit/:id', to: 'model#edit'
   match '/model/update' => 'model#update'
   match '/model/add/:equipment_id', to: 'model#add'

@@ -1,0 +1,24 @@
+// Place all the styles related to the more controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.more_container{
+	font-family: "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+	width: 800px;
+	margin: 0 auto;
+	background-color: #ffffff;
+	min-height: 400px;
+	padding: 10px 10px 10px 10px;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+}
+
+.more_container .img_right{
+	float: right;
+	margin: 5px;
+}
+
+.more_container .img_left{
+	float: left;
+	margin: 5px;
+}

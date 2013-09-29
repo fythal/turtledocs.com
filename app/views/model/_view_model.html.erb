@@ -1,18 +1,18 @@
 
 <% if !@model.blank? %>
 	<div class="box_header">
-		<div id="md-box_header" class="box_header_name"><%= @model_select.name %></div>
+		<div id="md-box_header" class="box_header_name"><%= @select_model.name %></div>
 		<% if can? :update,Model %>
 		<div class="update_container"> 
-			<%= link_to image_tag("edit.png", :size => "16x16", :alt => "Edit Model"), "javascript:edit_model(#{@model_select.id})", :id => "mdl-edit" %>
-			<%= link_to image_tag("deletered.png", :size => "16x16", :alt => "Delete Model"), "javascript:remove_model(#{@model_select.id})", :id => "mdl-delete"  %>
+			<%= link_to image_tag("edit.png", :size => "16x16", :alt => "Edit Model"), "javascript:edit_model(#{@select_model.id})", :id => "mdl-edit" %>
+			<%= link_to image_tag("deletered.png", :size => "16x16", :alt => "Delete Model"), "javascript:remove_model(#{@select_model.id})", :id => "mdl-delete"  %>
 		</div>
 		<% end %>
 		<div class="clear"></div>
 	</div>
-	<div class="inner_box">
+	<div id="model_box" class="inner_box">
 	<% @model.each do |m|
-		if m.id === @model_select.id
+		if m.id === @select_model.id
 			id = 'md_box_selected'
 			cls = 'box_selected' %>
 			<div id="<%= id %>" class="<%= cls %>" value="<%= m.id %>">

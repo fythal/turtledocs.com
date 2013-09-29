@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<!-- <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
       <div id="logo_container">
@@ -36,4 +36,41 @@
       </nav>
     </div>
   </div>
-</header>
+</header> -->
+<div class="header">
+  <div class="header_container">
+    <div id="logo_container">
+      <%= image_tag("fastturtle.png", :size => "50x50", :alt => "Edit Equipment", :id => "logo") %>
+    </div>
+    <div id="messaging" class="messaging">this is where the message will go.</div>
+    <div class="nav">
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Contact", contact_path %></li>
+          <li><%= link_to "About", about_path %></li>
+          <% if signed_in? %>
+            <% if can? :show, User %>
+            <li><%= link_to "Users", users_path %></li>
+            <% end %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li>
+            <%= link_to 'Sign In', new_user_session_path %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+</div>
