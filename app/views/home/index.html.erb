@@ -1,3 +1,24 @@
-<h3>Home</h3>
-<h3>This is the home page when logged in.</h3>
-<h4>Need to put content in here.</h4>
+<div class="main">
+	<h1>
+		Welcome
+		<%= session.inspect %>
+	</h1>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac libero leo. Aliquam auctor mi in ligula commodo rhoncus. Duis
+	</p>
+	<div class="main_mid">
+		<div class="inner_mid">
+			<div class="nav_mid">
+				
+				<div class="sign_up">
+					<%= link_to 'HVAC Docs', '/equipment'%>
+					<br><hr>
+					<%= link_to "More Info", 'more/' %>
+					<br><hr>
+					<%= link_to "Sign Up Now", 'users/sign_up' %>
+				</div>
+			</div>
+			<%= image_tag("monitors.png", :size => "995x404", :title => "hvac schematic") %>
+		</div>
+	</div>
+</div>
