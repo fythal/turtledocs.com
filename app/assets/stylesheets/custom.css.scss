@@ -61,6 +61,7 @@ a{
 html {
 	overflow-y: scroll;
 	font-family: "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+	word-spacing: -0.06em;
 }
 
 body {
@@ -449,7 +450,7 @@ aside {
   }
 }
 
-.sign_up{
+.vert_nav{
 	font-size: 1.4em;
 	text-align: left;
 	letter-spacing: -1px;
@@ -457,11 +458,11 @@ aside {
 	margin-top: 0px;
 	text-align: center;
 }
-.sign_up a{
+.vert_nav a{
 	text-decoration: none;
 }
 
-.sign_up hr{
+.vert_nav hr{
 	display: block; 
 	height: 1px;
     border: 0; 
@@ -529,6 +530,11 @@ input {
 }
 
 .crumbs{
+	font-size: 1.6em;
+	color: #16396E;
+}
+
+.welcome{
 	font-size: 1.6em;
 	color: #16396E;
 }

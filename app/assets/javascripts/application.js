@@ -18,6 +18,66 @@
 var intervalId = 0;
 var margin_left = 0;
 
+function save_to_favorite(document_id){
+	$.ajax({
+		type: "Post",
+		data: {"document_id" : document_id},
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		url: "/documents/save_favorite",
+		success: function(data){
+			if(data == 'error'){
+				$('#messaging').html("Document is already saved.");
+					$('#messaging').show('slow', function() {
+						$('#messaging').fadeOut(10000, function() {});
+					});
+			}else{
+				$('#fav_' + document_id).html('');
+				$('#recent_' + document_id).css('margin-left', 20);
+				$('#favorites_container').html(data);
+			}
+		}
+	});
+}
+
+function delete_favorite(favorite_id){
+	$.ajax({
+		type: "Post",
+		data: {"favorite_id" : favorite_id},
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		url: "/documents/delete_favorite",
+		success: function(data){
+			if(data == 'error'){
+				$('#messaging').html("Error deleting favorite.");
+					$('#messaging').show('slow', function() {
+						$('#messaging').fadeOut(10000, function() {});
+					});
+			}else{
+				get_recent_docs();
+				$('#favorites_container').html(data);
+			}
+		}
+	});
+}
+
+function get_recent_docs(){
+	$.ajax({
+		type: "Post",
+		//data: {"favorite_id" : favorite_id},
+		beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+		url: "/logs/get_recent_docs",
+		success: function(data){
+			if(data == 'error'){
+				$('#messaging').html("Error deleting favorite.");
+					$('#messaging').show('slow', function() {
+						$('#messaging').fadeOut(10000, function() {});
+					});
+			}else{
+				$('#recent_container').html(data);
+			}
+		}
+	});
+}
+
 function slideSwitch() {
 	var $active = $('#slideshow div.active');
 	if($active.length === 0){

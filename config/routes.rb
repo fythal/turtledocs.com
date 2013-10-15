@@ -1,6 +1,7 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
   authenticated :user do
     root :to => 'home#index'
+    #root :to => 'users#home'
   end
   get "equipment/index"
   # get "equipment/new"
@@ -38,4 +39,8 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   match '/documents/update' => 'documents#update'
   match '/documents/view' => 'documents#view'
   match '/documents/remove' => 'documents#remove'
+  match '/documents/save_favorite' => 'documents#save_favorite'
+  match '/documents/delete_favorite' => 'documents#delete_favorite'
+  match 'logs/get_recent_docs' => 'logs#get_recent_docs'
+  match 'doc_viewer/view_doc' => 'doc_viewer#view_doc'
 end

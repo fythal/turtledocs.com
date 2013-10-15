@@ -14,7 +14,6 @@ $( document ).ready(function() {
 	});
 
 	$('#search_box').keyup(function(){
-		console.log("searching")
 		if (this.value.length > 2 || $('#search_container').is(':visible')){
 			$('#search_container').show('slow', function(){});
 			$.ajax({

@@ -1,0 +1,12 @@
+<div class="links_header">Favorites</div>
+<ul>
+<% @favs.each do |f| 
+	ext = File.extname(f[:filepath]) %>
+	<div class="delete_favorite">
+		<%= link_to image_tag("deletered.png", :size => "14x14", :alt => "Save To Favorites"), "javascript:delete_favorite(#{f[:fav_id]})", :id => f[:fav_id] %>
+	</div>
+	<div>
+		<li><%= link_to "#{f[:name]}#{ext}", { :controller=>"documents", :action=>"get_file", :id => "#{f[:id]}" }, :target => "_blank" %></li>
+	</div>
+<% end %>
+</ul>

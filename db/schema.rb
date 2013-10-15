@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622120004) do
+ActiveRecord::Schema.define(:version => 20131012050833) do
+
+  create_table "data_files", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "documents", :force => true do |t|
     t.string   "model_id"
@@ -19,9 +24,11 @@ ActiveRecord::Schema.define(:version => 20130622120004) do
     t.string   "url"
     t.string   "filepath"
     t.text     "notes"
-    t.string   "status",     :default => "active"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.string   "status",       :default => "active"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "content_type"
+    t.integer  "file_size"
   end
 
   create_table "equipment", :force => true do |t|
@@ -32,6 +39,22 @@ ActiveRecord::Schema.define(:version => 20130622120004) do
     t.datetime "updated_at",                       :null => false
   end
 
+  create_table "favorite_docs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "document_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "logs", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "controller"
+    t.string   "action"
+    t.string   "params"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "models", :force => true do |t|
     t.integer  "equipment_id"
     t.string   "name"
@@ -39,6 +62,25 @@ ActiveRecord::Schema.define(:version => 20130622120004) do
     t.string   "status",       :default => "active"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "my_invoice_table", :force => true do |t|
+    t.integer  "job_id",                                               :null => false
+    t.string   "quickbooks_TxnID",        :limit => 40,                :null => false
+    t.string   "quickbooks_EditSequence", :limit => 20,                :null => false
+    t.datetime "TimeCreated",                                          :null => false
+    t.datetime "TimeModified",                                         :null => false
+    t.integer  "RefNumber",                                            :null => false
+    t.string   "Customer_ListID",         :limit => 40,                :null => false
+    t.string   "Customer_FullName",                                    :null => false
+    t.string   "ShipAddress_Addr1",       :limit => 50,                :null => false
+    t.string   "ShipAddress_Addr2",       :limit => 50,                :null => false
+    t.string   "ShipAddress_City",        :limit => 50,                :null => false
+    t.string   "ShipAddress_State",       :limit => 25,                :null => false
+    t.string   "ShipAddress_Province",    :limit => 25,                :null => false
+    t.string   "ShipAddress_PostalCode",  :limit => 16,                :null => false
+    t.float    "BalanceRemaining",                                     :null => false
+    t.integer  "IsActive",                              :default => 0
   end
 
   create_table "roles", :force => true do |t|

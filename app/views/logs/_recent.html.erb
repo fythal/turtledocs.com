@@ -1,0 +1,16 @@
+<div class="links_header">Recent</div>
+<ul>
+<% @docs.each do |d| 
+margin = 20
+ext = File.extname(d[:filepath]) %>
+	<div id= "fav_<%= d[:id] %>" class="save_favorite">
+	<% unless d[:fav] 
+		margin = 0%>
+		<%= link_to image_tag("favorite.jpg", :size => "14x14", :alt => "Save To Favorites"), "javascript:save_to_favorite(#{d[:id]})", :id => d[:id] %>
+		<% end %>
+	</div>
+	<div id="recent_<%= d[:id] %>" style="margin-left: <%= margin %>px;">
+		<li><%= link_to "#{d[:name]}#{ext}", { :controller=>"documents", :action=>"get_file", :id => "#{d[:id]}" }, :target => "_blank" %></li>
+	</div>
+	<% end %>
+</ul>

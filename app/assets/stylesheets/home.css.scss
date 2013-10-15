@@ -1,3 +1,64 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.links{
+	width: 250px;
+	height: 300px;
+	background-color: #ffffff;
+	float: left;
+	margin: 10px 10px 10px 10px;
+	overflow: auto;
+	padding: 5px;
+}
+
+.links_header{
+	text-align: center;
+	border-bottom: 1px solid #DFE2E1;
+}
+
+.links a{
+	text-decoration: none;
+}
+
+.links ul{
+	list-style: none;
+	margin: 0 0 0 5px;
+}
+
+.left_nav{
+	font-size: 1.4em;
+	text-align: left;
+	letter-spacing: -1px;
+	margin: 40px 10px;
+	text-align: center;
+	width: 200px;
+	float: left;
+}
+
+.left_nav a{
+	text-decoration: none;
+}
+
+.left_nav hr{
+	display: block; 
+	height: 1px;
+    border: 0; 
+    border-top: 1px solid #DFE2E1;
+    margin: 1em 0; 
+    padding: 0;
+}
+
+.save_favorite{
+	float: left;
+	display: inline;
+	margin: 0 0 0 0;
+	min-width: 20px;
+}
+
+.delete_favorite{
+	float: left;
+	display: inline;
+	margin: 0 0 0 0;
+	min-width: 20px;
+}

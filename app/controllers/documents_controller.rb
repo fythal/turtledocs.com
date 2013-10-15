@@ -41,11 +41,26 @@ class DocumentsController < ApplicationController
 
 	def get_file
 		if current_user and current_user.has_role? :user
+			if !current_user
+				user_id = -1
+			else
+				user_id = current_user.id
+			end
+			log = Log.create(
+				:user_id => user_id,
+				:controller => params[:controller],
+				:action => params[:action],
+				:params => params[:id])
+			# render :text => "#{params[:controller]}, #{user_id}"
+		
 			doc = Document.where('id' => params[:id]).first
-			puts "doc i #{doc.filepath}"
+			
+			#this will open new window with file.
 			send_file(doc.filepath, :type => doc.content_type, :disposition => 'inline')
+			#this will open download dialog.
+			# send_file(doc.filepath, :type => doc.content_type)
 		else
-			render :template => "devise/registrations/new", :locals => { :resource => User, :resource_name => :user }
+			redirect_to root_path, :alert => "Access denied."
 		end
 	end
 
@@ -74,6 +89,42 @@ class DocumentsController < ApplicationController
 		 	r = {:status => "error", :message => doc.errors.full_messages.join(", ")}
 		end
 		render :json => {:response => r}
+	end
+
+	def save_favorite
+		# fav = FavoriteDoc.create(
+		# 	:user_id => current_user.id,
+		# 	:document_id => params[:document_id])
+		fav = FavoriteDoc.new()
+		fav.user_id = current_user.id
+		fav.document_id = params[:document_id]
+		@favs = []
+		if fav.save
+			@favorites = FavoriteDoc.find(:all, :conditions => {:user_id => current_user.id})
+			@favorites.each do |f|
+				doc = Document.find(:first, :conditions => { :id => f.document_id })
+				next if doc.blank?
+				@favs.push({:id => doc.id, :fav_id => f.id, :filepath => doc.filepath, :name => doc.name})
+			end
+			render :partial => "home/favorites"
+		else
+			render :text => 'error'
+		end
+	end
+
+	def delete_favorite
+		@favs = []
+		if FavoriteDoc.destroy(params[:favorite_id])
+			@favorites = FavoriteDoc.find(:all, :conditions => {:user_id => current_user.id})
+			@favorites.each do |f|
+				doc = Document.find(:first, :conditions => { :id => f.document_id })
+				next if doc.blank?
+				@favs.push({:id => doc.id, :fav_id => f.id, :filepath => doc.filepath, :name => doc.name})
+			end		
+			render :partial => "home/favorites"
+		else
+			render :text => 'error'
+		end
 	end
 
 end
