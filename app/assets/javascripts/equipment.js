@@ -13,20 +13,20 @@ $( document ).ready(function() {
 	  event.preventDefault(); // Prevent link from following its href
 	});
 
-	$('#search_box').keyup(function(){
-		if (this.value.length > 2 || $('#search_container').is(':visible')){
-			$('#search_container').show('slow', function(){});
-			$.ajax({
-				type: "Post",
-				data: {"value" : this.value},
-				beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-				url: "/equipment/search_documents",
-				success: function(data){
-					$('#search_container').html(data);
-				}
-			});
-		}
-	});
+	// $('#search_box').keyup(function(){
+	// 	if (this.value.length > 2 || $('#search_container').is(':visible')){
+	// 		$('#search_container').show('slow', function(){});
+	// 		$.ajax({
+	// 			type: "Post",
+	// 			data: {"value" : this.value},
+	// 			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+	// 			url: "/equipment/search_documents",
+	// 			success: function(data){
+	// 				$('#search_container').html(data);
+	// 			}
+	// 		});
+	// 	}
+	// });
 	scrolltop_equipment()
 	scrolltop_model()
 });
