@@ -31,21 +31,21 @@ $( document ).ready(function() {
 	scrolltop_model()
 });
 
-$('#search_box').keyup(function(){
-	console.log("searching")
-	if (this.value.length > 2 || $('#search_container').is(':visible')){
-		$('#search_container').show('slow', function(){});
-		$.ajax({
-			type: "Post",
-			data: {"value" : this.value},
-			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			url: "/equipment/search_documents",
-			success: function(data){
-				$('#search_container').html(data);
-			}
-		});
-	}
-});
+// $('#search_box').keyup(function(){
+// 	console.log("searching")
+// 	if (this.value.length > 2 || $('#search_container').is(':visible')){
+// 		$('#search_container').show('slow', function(){});
+// 		$.ajax({
+// 			type: "Post",
+// 			data: {"value" : this.value},
+// 			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+// 			url: "/equipment/search_documents",
+// 			success: function(data){
+// 				$('#search_container').html(data);
+// 			}
+// 		});
+// 	}
+// });
 
 function upload_toggle(){
 	var val = $('#upload_docs_container').css('display');
