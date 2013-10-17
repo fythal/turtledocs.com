@@ -93,7 +93,7 @@ function close_search_container(){
 		}
 	}
 
-	function get_document_list(equipment_id = 'NULL', model_id = 'NULL'){
+	function get_document_list(equipment_id, model_id){
 		equipment_name = $('#eq_box_selected').text();
 		$('#docs_equipment').html($('#eq_box_selected').text());
 		if(model_id == 'NULL'){
@@ -126,7 +126,10 @@ function close_search_container(){
 		});
 	}
 
-	function get_model_list(equipment_id, model_id = 'NULL'){
+	function get_model_list(equipment_id, model_id){
+		if(typeof model_id == 'undefined'){
+			model_id = 'NULL'
+		}
 		$.ajax({
 			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Tokclose_formen', $('meta[name="csrf-token"]').attr('content'))},
 			type: "GET",

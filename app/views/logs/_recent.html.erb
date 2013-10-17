@@ -10,7 +10,7 @@ ext = File.extname(d[:filepath]) %>
 		<% end %>
 	</div>
 	<div id="recent_<%= d[:id] %>" style="margin-left: <%= margin %>px;">
-		<li><%= link_to "#{d[:name]}#{ext}", { :controller=>"documents", :action=>"get_file", :id => "#{d[:id]}" }, :target => "_blank" %></li>
+		<li><%= link_to "#{d[:name]}#{ext}", { :controller=>"documents", :action=>"get_file", :id => "#{d[:id]}" } %></li>
 	</div>
 	<% end %>
 </ul>

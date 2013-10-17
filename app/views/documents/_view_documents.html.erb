@@ -8,7 +8,7 @@
 			<%= link_to image_tag("deletered.png", :size => "14x14", :alt => "Delete Model"), "javascript:remove_document(#{d.id})", :id => d.id %>
 		</div>
 		<% end %>
-		<%= link_to "#{d.name}#{ext}", { :controller=>"documents", :action=>"get_file", :id => "#{d.id}" }, :target => "_blank" %>
+		<%= link_to "#{d.name}#{ext}", { :controller=>"documents", :action=>"get_file", :id => "#{d.id}" } %>
 	</div>
 	<% end
 else %>
