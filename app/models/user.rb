@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # after_create :add_default_role
+  after_create :add_default_role
   rolify
   ROLES = %w[user]
   # Include default devise modules. Others available are:
